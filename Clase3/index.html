@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html ng-app="7MinuteApp">
+<head>
+	<meta charset="utf-8">
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
+
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+	<script type="text/javascript" src="js/app.js"></script>
+	<script type="text/javascript" src="js/workout.js"></script>
+
+	<title>7 minute exercise</title>
+</head>
+<body ng-controller="WorkoutController">
+	<div class="navbar navbar-default navbar-fixed-top top-navbar">
+        <div class="container app-container">
+            <div class="navbar-header">
+				<h1>7 Minute Workout</h1>
+			</div>
+		</div>
+	</div>
+
+	<div class="container body-content app-container">
+
+		<pre>Current Exercise: {{currentExercise | json}}</pre>
+
+		<!-- Esta es la forma de presentacion mia para hacerlo mas presentable -->
+<!-- 		<pre>Current Exercise:
+			<ul ng-repeat="(key,value) in currentExercise.detail"><li>{{key | uppercase}}: {{value}}</li></ul>	
+		</pre> -->
+
+		<pre>
+			Time Left:
+			{{currentExercise.duration - currentExerciseDuration}}
+		</pre>	
+	</div>
+</body>
