@@ -4,7 +4,7 @@ angular.module('7MinWO')
 .controller('WorkoutController' , ['$scope', '$interval', function($scope,$interval){
 
   var exercise = [];
-  
+  var numberExercise= 0;
 
       exercise.push({
       detail: new Exercise({
@@ -41,19 +41,29 @@ angular.module('7MinWO')
           this.procedure = args.procedure;
       }
 
-      $scope.$watch('durationCurrentExercise', function(){
-        if ($scope.durationCurrentExercise == $scope.currentExercise) {
-          startExercise(exercise.shift());
-        }})
-      var startExercise = function (exercisePlan){
-        $scope.currentExercise = exercisePlan;
-        $scope.currentExerciseDuration = 0;
+$scope.$watch('duracionEjercicioActual', function(arg1){
+  
+        if (arg1 == $scope.currentExercise.duration){
+            startExercise(exercise.shift());
+            numberExercise++;
+        }
 
-        $interval(function(){
-          ++$scope.currentExerciseDuration;
-        },
-        1000,
-         $scope.currentExercise.duration)
-        };
+   })
+  var startExercise = function (exercisePlan) {
+
+    if(exercise.length >= numberExercise){
+      $scope.currentExercise = exercisePlan;
+      $scope.currentExerciseDuration = 0;
+      $interval(function(){
+        ++$scope.currentExerciseDuration;
+
+      },1000, $scope.currentExercise.duration);
+    }else{
+        $location.path('/finish');
+      }
+
+    
+    
+   };
       startExercise(exercise.shift());
 }]);
