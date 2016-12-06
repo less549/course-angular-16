@@ -1,33 +1,35 @@
 'use strict';
 
 angular.module('7MinWO')
-.controller('WorkoutController' , ['$scope', '$interval', function($scope,$interval){
+.controller('WorkoutController' , ['$scope', '$interval','$location', function($scope, $interval, $location){
 
   var exercise = [];
   var numberExercise= 0;
 
-      exercise.push({
-      detail: new Exercise({
-        name: "jumpingJacks",
-        title: "Jumping Jacks",
-        description: "A jumping jack or star jump",
-        image: "img/jumpingJacks.png",
-        video: "https://www.youtube.com/watch?v=c4DAnQ6DtF8",
-        procedure: "Jump while raising arms and separating legs to sides. Land on forefoot with legs apart and arms overhead. Jump again while lower arms and returning legs to midline. Land on forefoot with arms and legs in original position and repeat.",
-            }),
-              duration: 30});
+  exercise.push({
 
-    exercise.push({
-      detail: new Exercise({
-        name: "pushup",
-        title: "Push Ups",
-        description: "Push-ups are a basic exercise.",
-        image: "img/pushUp.png",
-        video: "https://www.youtube.com/watch?v=Eh00_rniF8E",
-        procedure: "A calisthenics exercise performed in a prone position by raising and lowering the body using the arms.",
-            }),
+    detail: new Exercise({
+      name: "jumpingJacks",
+      title: "Jumping Jacks",
+      description: "A jumping jack or star jump",
+      image: "img/jumpingJacks.png",
+      video: "https://www.youtube.com/watch?v=c4DAnQ6DtF8",
+      procedure: "Jump while raising arms and separating legs to sides. Land on forefoot with legs apart and arms overhead. Jump again while lower arms and returning legs to midline. Land on forefoot with arms and legs in original position and repeat.",
+    }),
+    duration: 30
+  });
+
+  exercise.push({
+    detail: new Exercise({
+      name: "pushup",
+      title: "Push Ups",
+      description: "Push-ups are a basic exercise.",
+      image: "img/pushUp.png",
+      video: "https://www.youtube.com/watch?v=Eh00_rniF8E",
+      procedure: "A calisthenics exercise performed in a prone position by raising and lowering the body using the arms.",
+    }),
       duration: 45
-    });
+  });
 
 
  function Exercise(args) {
@@ -41,7 +43,7 @@ angular.module('7MinWO')
           this.procedure = args.procedure;
       }
 
-$scope.$watch('duracionEjercicioActual', function(arg1){
+$scope.$watch('currentExerciseDuration', function(arg1){
   
         if (arg1 == $scope.currentExercise.duration){
             startExercise(exercise.shift());
@@ -64,6 +66,6 @@ $scope.$watch('duracionEjercicioActual', function(arg1){
 
     
     
-   };
+   }
       startExercise(exercise.shift());
 }]);

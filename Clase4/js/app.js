@@ -4,7 +4,7 @@
 	angular.module('7MinuteApp', ['ngRoute', '7MinWO'])
 	.config(function($routeProvider) {
 	 $routeProvider.when('/start',
-	 					{templateUrl:'partials/start.hml'});
+	 					{templateUrl:'partials/start.html'});
 	$routeProvider.when('/workout', 
     	{ templateUrl: 'partials/workout.html', controller: 'WorkoutController' });
 	$routeProvider.when('/finish', 
