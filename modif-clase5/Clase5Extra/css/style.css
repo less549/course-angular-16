@@ -1,0 +1,48 @@
+html{
+    height:100%;
+}
+
+body {
+    padding-top: 70px;
+    padding-bottom: 20px;
+    min-height: 100%;
+    font-size: 1.5em;
+    font-family: Georgia, serif;
+    font-style: normal;
+    font-weight: 400;
+}
+
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.navbar-default.top-navbar {
+    background-color: #FE8E3B;
+    border-color: #FE8E3B;
+}
+
+.navbar-default.top-navbar h1 {
+    color: white;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+h3 {
+	margin-left: 40px;
+}
+
+#list1, #list2 {
+  float: left;
+}
+#list2 {
+  margin-left: 40px;
+}
+
+.error {
+  color: red;
+}
+
+ul{  
+  list-style-type: none;
+}

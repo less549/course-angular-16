@@ -1,0 +1,14 @@
+<div class="row">
+    <div class="col-sm-8 col-sm-offset-2">
+        <div ng-repeat="item in menu.item">
+            <br>
+			<h1>{{menu.item.name}}</h1>
+			<h3>{{menu.item.description}}</h3>
+            <h1>Price</h1>
+            <h3>{{menu.item.small_portion_name}}: {{menu.item.price-small | currency}}</h3>
+            <h3>{{menu.item.largue_portion_name}}: {{menu.item.price-large | currency}}</h3>
+            <br>
+            <hr>
+		</div>
+	</div>
+</div>
